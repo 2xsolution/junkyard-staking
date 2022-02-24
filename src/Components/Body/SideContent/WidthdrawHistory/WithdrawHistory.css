@@ -1,0 +1,93 @@
+.withdraw_history{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.reward_and_vault li{
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 20px;
+    font-family: Nunito;
+    font-weight: 600;
+    font-style: normal;
+    color : rgb(105, 105, 105);
+    cursor: pointer;
+}
+.reward_and_vault li:hover{
+    color: #000;
+}
+
+.withdraw_history_box{
+    background-color : rgb(1, 9, 32);
+    border-radius: 8px;
+    color : #fff;
+    display : flex;
+    flex-direction: column;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+.withdraw{
+    display: flex;
+    align-items: center;
+    justify-content:space-between; 
+}
+.amount{
+    display : flex;
+    align-items: center;
+}
+.amount p{
+    margin-right: 30px;
+    font-size:20px;
+    font-style: normal;
+    font-weight: 600;
+    color : #fff;
+}
+.amount span{
+  margin-top: 20px;
+ 
+}
+.amount p{
+   margin: 0px;
+   margin-right: 25px;
+}
+.withdraw_btn{
+    font-size: 18px;
+    font-family: Nunito;
+    font-weight: 300;
+    font-style: normal;
+    border:0.5px solid #fff;
+    padding: 6px 14px ;
+    color: rgb(196, 196, 196);
+    border-radius: 5px;
+}
+.withdraw_history_p{
+    font-size: 16px;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    color: #F7614E;
+    margin-left: 20px;
+}
+.my_wallet{
+    padding: 20px 0px;
+}
+.my_wallet a{
+        font-size: 16px;
+        font-family: Nunito;
+        font-style: normal;
+        font-weight: normal;
+        color : rgb(206, 206, 206);
+}
+.my_wallet a span{
+    margin-right: 30px;
+    font-size:20px;
+    font-style: normal;
+    font-weight: 600;
+    color : #fff;
+    margin-left: 10px;
+}
+.my_wallet .buy{
+    font-size:16px;
+    color: #F7614E;
+    margin-left: 10px;
+}

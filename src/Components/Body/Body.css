@@ -1,0 +1,31 @@
+.body{
+    padding:40px 0px;
+}
+.side_content{
+    margin-right: 30px;
+}
+.my_warriors{
+    width : 70%
+}
+.gaming-warrior{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+@media (max-width:1799px) {
+    .gaming-warrior{ 
+        grid-template-columns: 1fr 2fr;
+    }
+ }
+ 
+@media (max-width:1200px) {
+    .gaming-warrior{ 
+        grid-template-columns: 40% 69%;
+    }
+ }
+ 
+@media (max-width:1000px) {
+    .gaming-warrior{ 
+        grid-template-columns: repeat(1,1fr);
+    }
+ }
+

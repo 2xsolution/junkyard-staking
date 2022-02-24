@@ -1,0 +1,50 @@
+.navbars{
+    background-color: transparent;
+}
+.navbar-dark .navbar-toggler {
+    color: rgba(255,255,255,.55);
+    outline: none;
+   border: #fff 0px solid !important;
+}
+.navbar-toggler:focus {
+    text-decoration: none;
+    border: 0px solid transparent;
+    box-shadow: 0 0 0 0.0rem !important;
+}
+.menu{
+    display : flex;
+}
+.menu li{
+    display : inline-block;
+    margin-left: 14px;
+}
+.menu li a{
+    font-size: 18px;
+    font-family: Nunito;
+    font-weight: 400;
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.7);
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+.menu li a:hover{
+    color : coral;
+    border-bottom: 1px solid coral;
+    border-width: 2px;
+}
+
+.DA_4K{
+    color : #fff;
+    font-size: 16px;
+    font-family: Nunito;
+    clip-path: polygon(9% 0, 100% 0, 91% 100%, 0 100%);
+    font-weight: 300;
+    font-style: normal;
+    background:linear-gradient(89.74deg, rgba(91, 134, 255, 0.16) 8.33%, rgba(213, 21, 254, 0.16) 99.77%);
+    padding: 8px 30px;
+}
+@media (max-width:768px) {
+    .DA_4K{
+        width: 30%;
+    }
+}

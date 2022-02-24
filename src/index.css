@@ -1,0 +1,29 @@
+body{
+  margin : 0;
+  padding: 0;
+  box-sizing: border-box;
+  background : #101533 !important;
+  overflow-x: hidden;
+}
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700;900&display=swap');
+
+/* ======================= 
+      CSS Imports
+======================= */
+
+@import url("./Components/Header/Header.css");
+@import url("./Components/Navbar/Navbar.css");
+@import url("./Components/Body/Body.css");
+@import url("./Components/Body/SideContent/WidthdrawHistory/WithdrawHistory.css");
+@import url("./Components/Body/SideContent/JunkeywardsAndRecords/JunkeywardsAndRecords.css");
+@import url("./Components/Body/SideContent/Ad/Ad.css");

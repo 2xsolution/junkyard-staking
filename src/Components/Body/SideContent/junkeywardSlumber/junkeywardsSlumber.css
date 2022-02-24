@@ -1,0 +1,105 @@
+.people-Junkyards{
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.people-Junkyards h1{
+    font-size: 21px;
+    margin: 5px;
+    color: rgba(255, 255, 255, 0.66);  
+}
+
+.slumber-section{
+    background: rgba(227, 233, 255, 0.12);
+    padding-top: 15px;
+    border-radius: 12px;
+    padding-bottom: 20px;
+}
+.slumbers{
+    display: flex;
+    justify-content: space-around;
+}
+.slumber{
+    margin-left: 20px;
+}
+.slumber h2{
+    color: #FFFFFF;
+    font-size: 18px;
+}
+.slumber p,h3{
+    margin: 2px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.slumber-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.slumber-header h2,p{
+    margin: 2px;
+}
+.downArrow{
+    margin: 0px;
+    font-size: 16px;
+    color: #48C379;
+}
+.slumber-header h3{
+    margin-top: -2px;
+    font-size: 20px;
+}
+.slumber-details{
+   
+    padding-bottom: 20px;
+    
+}
+.pk{
+    margin-top: 50px;
+}
+.slumber-content{
+    margin:0px;
+    padding-top: 20px;
+}
+.slumber-content p,h1{
+    margin:2px;
+}
+.slumber-content h1{
+    
+    color: #ffffff;
+}
+.slumber-content p{
+   color:  rgba(255, 255, 255, 0.66);
+}
+.stand_line{
+  
+    display: block;
+    width: 1px;
+    height: 250px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-left: 0px solid rgba(255, 255, 255, 0.26);
+    border-right: 0px solid rgba(255, 255, 255, 0.26);
+    border-top: 0px solid rgba(255, 255, 255, 0.26);
+    border-bottom: 250px rgba(255, 255, 255, 0.26) solid !important; 
+}
+.slumber-footer{
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.66);
+
+}
+.timing{
+    color: #F7614E; 
+}
+.progress_line{
+    width: 90%;
+    padding: 2px;
+    padding-right: 10%;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 2px;
+}
+.progress-bar{
+    background: linear-gradient(89.72deg, rgba(91, 134, 255, 0) 0.22%, rgba(213, 21, 254, 0.72) 99.75%) !important;
+    border: 1px solid #000000;   
+}

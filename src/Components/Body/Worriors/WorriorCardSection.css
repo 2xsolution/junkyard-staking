@@ -1,0 +1,226 @@
+/* worrior section design code  */
+.worriors{
+    margin-left: 0%;
+}
+.battle-area{
+    display: flex;
+    margin-bottom: 10px;
+    background-color: rgba(227, 233, 255, 0.05);
+    border-radius: 12px 12px 0px 0px;
+}
+
+.battle-area-btn{
+    margin-right: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(42 46 76);
+    font-size:16px;
+    color: #FFFFFF;
+    border-radius: 12px 0px 0px 0px;
+    border: none;
+}
+.battle-btn-two{
+    padding-top: 6px;
+    margin-top: 2px;
+}
+.select-count-area{
+    background: rgba(227, 233, 255, 0.12);
+    color:rgba(255, 255, 255, 0.66);
+    
+    padding-bottom: 10px;
+    border-radius: 12px 12px 0px 0px;
+    
+}
+.selceted-item{
+    display: flex;
+    background-color: transparent;
+    margin-left: 15px;
+}
+.selected-item-btn{
+    color:rgba(255, 255, 255, 0.66);
+    background-color: transparent;
+    padding: 7px;
+    border: .3px solid rgba(255, 255, 255, 0.26);;
+}
+.selected{
+    background: #F7614E;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px 0px 0px 4px;    
+}
+.select-cancel-area{
+    margin-left: 18px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+.select-cancel-area span{
+    margin-right: 3px;
+}
+
+.selected-area-btn{
+    border: none;
+    background-color: transparent;
+    color:  #F7614E;
+    font-size: 14px;
+}
+/* worrior card design  */
+
+
+.warrior-card-section{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+    place-items: center;
+    padding: 20px;
+    background: rgba(227, 233, 255, 0.05);
+    border-radius: 0px 0px 12px 12px;
+}
+
+/* .worrior-card{
+    width:273px;
+    border-radius: 8px 8px 0px 0px;
+} */
+.worriors h1{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0px;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+    margin: 15px 0px;
+}
+/* img section design code  */
+.card-img{
+    width:273px;
+    height:244px;   
+    border-radius: 8px 8px 0px 0px;
+    position: relative;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 8px 0px 0px;
+}
+.card-selected input[type='checkbox']{
+    margin-top: 11px;
+    margin-left: 10px;
+    position:absolute;
+    top: 0;
+}
+.card-selected h6{
+    margin: 0;
+    width: 91px;
+    height: 31px;
+    position:absolute;
+    top: 0px;
+    right: 0;
+    background: #045FA7;
+    border-radius: 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ /* card body desig code  */
+.card-body{
+    padding-top: 10px;
+    padding-bottom: 2px;
+    border-radius: 0px 0px 8px 8px;
+    background: linear-gradient(180deg, #A520CB -4.92%, rgba(154, 66, 182, 0) 25.72%), #303B54;
+}
+
+/* game level code  here  */
+.game-level{
+   margin-left: 15px;
+}
+.game-level .level-serial{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    align-items: center;
+    color: #FFFFFF;
+    margin-right: 8px;
+}
+.game-level .level-up{
+    padding: 3px 10px;
+    background: #F7614E;
+    border-radius: 3px;
+}
+
+/* rewarded code here  */
+.reward{
+    margin-top: 12px;
+    margin-left: 15px;
+}
+.reward p{
+    font-size: 14px;
+    line-height: 21px;
+    margin: 1px;
+    color: rgba(255, 255, 255, 0.66);
+}
+.reward h2{
+    font-weight: 600;
+    font-size: 24px;
+    margin: 1px;
+    line-height: 36px;
+    letter-spacing: 0.1px;
+    color: #FFFFFF;
+}
+/* duration section design code  */
+
+.duration{
+   display: flex;
+   margin-left: 15px;
+   justify-content: space-between;
+}
+.game-time p{
+    margin-top: 10px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+.game-time span{
+    padding: 4px 10px;
+    width: 44px;
+    height: 26px;
+    margin-right: 2px;
+    background: #3A445F;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+
+/* game logo code design  */
+
+.game-logo{
+    margin-right: -12px;
+    width: 81px;
+    height: 74px;
+}
+.game-logo img{
+    width: 100%;
+    height: 100%;
+    margin-top: 17px ;
+ }
+
+ /* worriors section responsive design  */
+
+ @media (max-width:1799px) {
+    .warrior-card-section{ 
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 10px;
+    }
+ }
+ @media (max-width:1200px) {
+    .warrior-card-section{ 
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 10px;
+    }
+ }
+ @media (max-width:550px) {
+    .warrior-card-section{ 
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 10px;
+    }
+ }

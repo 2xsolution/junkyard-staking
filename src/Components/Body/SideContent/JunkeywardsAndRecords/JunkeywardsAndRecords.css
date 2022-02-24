@@ -1,0 +1,50 @@
+.winning{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* background-color: aquamarine; */
+    margin-top: 50px;
+}
+.junkeywards_and_record li{
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 20px;
+    font-family: Nunito;
+    font-weight: 600;
+    font-style: normal;
+    color : rgb(105, 105, 105);
+    cursor: pointer;
+}
+.junkeywards_and_record li:hover{
+    color: #000;
+}
+.winning_box{
+    background-color : rgb(1, 9, 32);
+    border-radius: 8px;
+    color : #fff;
+    display : flex;
+    /* flex-direction: column; */
+    justify-content:center;
+    padding: 30px 20px;
+    margin-top: 20px;
+}
+.win{
+    display : flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    /* margin-right: 50px; */
+    padding:0px  20px;
+}
+.border{
+    border-left: 1px solid rgba(255, 255, 255, 0.36);
+    
+}
+.win img{
+    margin-right: 10px;
+}
+.win_value{
+    font-size: 20px;
+    font-family: Nunito;
+    font-weight: 600;
+    font-style: normal;
+}
