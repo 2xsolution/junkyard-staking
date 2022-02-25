@@ -89,7 +89,7 @@ const WorriorCardSection = () => {
                 {
                     stakedNfts.length > 0 ?
                         stakedNfts.map((nft: any, idx: number) => {
-                            return <WorriorCard key={idx} index={idx} image={nft.image} name={nft.name} handleOrderCollect={handleOrderCollect}></WorriorCard>;
+                            return <WorriorCard key={idx} nft = {nft} index={idx} image={nft.image} name={nft.name} handleOrderCollect={handleOrderCollect}></WorriorCard>;
                         })
                     :
                         <p>You didn't stake any NFTs.</p>
@@ -100,7 +100,7 @@ const WorriorCardSection = () => {
                 {
                     walletNfts.length > 0 ?
                     walletNfts.map((nft: any, idx: number) => {
-                            return <WorriorCard key={idx} index={idx} image={nft.image} name={nft.name} handleOrderCollect={handleUnstackProduct}></WorriorCard>;
+                            return <WorriorCard key={idx} nft = {nft} index={idx} image={nft.image} name={nft.name} handleOrderCollect={handleUnstackProduct}></WorriorCard>;
                         })
                     :
                         <p>You have no NFTs.</p>

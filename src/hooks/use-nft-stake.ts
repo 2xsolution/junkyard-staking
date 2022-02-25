@@ -143,6 +143,7 @@ const getStakedNftsForOwner = async (wallet: AnchorWallet) => {
                 ]
             }
         );
+        console.log('what is it', resp);
         for(let nftAccount of resp){
             let stakedNft = await program.account.stakeData.fetch(nftAccount.pubkey);
             if (stakedNft.unstaked) continue;
