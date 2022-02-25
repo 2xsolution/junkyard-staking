@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './WorriorCardSection.css'
 import { GrMoney } from 'react-icons/gr';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
+import { STAKE_STATUS } from '../../../constant/contract';
 import { FiDatabase } from "react-icons/fi";
 const pic = '../../Image/card-img.png'
 const pic1 = '../../Image/Screenshot_3-removebg-preview (2) 2.png'
 interface WorriorCardInterface {
-    item : {name : number},
+    image : any,
+    name : string,
     index : number,
     handleOrderCollect : (e : React.ChangeEvent<HTMLInputElement>, i : number)=> void
 }
@@ -20,7 +22,7 @@ const WorriorCard = (props : WorriorCardInterface) => {
         <div className='card-section'>
           <div className='worrior-card'>
             <div className='card-img'>
-                <img src={pic} />
+                <img src={props.image} />
                 <div className='card-selected'>
                     <input type="checkbox"  onChange={(e)=>{props.handleOrderCollect(e, props.index)}}    className='checkbox-round' />
                     <h6><span>IN BATTLE</span></h6>
@@ -28,7 +30,7 @@ const WorriorCard = (props : WorriorCardInterface) => {
             </div>
             <div className='card-body'>
                 <div className='game-level'>
-                    <span className='level-serial'>#12</span>
+                    <span className='level-serial'>{props.name}</span>
                     <span className='level-up'>lvl 30</span>
                 </div>
                 <div className='reward'>
