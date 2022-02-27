@@ -1,4 +1,42 @@
+a {
+  text-decoration: none !important;
+}
 
-a{
-    text-decoration: none !important;
+.loader {
+  overflow: hidden;
+  margin: 0 !important;
+  position: fixed;
+  top: 0;
+  right: 0;
+  flex-direction: column;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000000000 !important;
+  color: white;
+}
+
+.logo {
+  width: 100px;
+  transform: scale(2.2);
+}
+
+.custom-btn {
+  margin: 4px;
+  width: 100%;
+  padding: 6px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: #9752f1;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.w-max {
+  width: max-content !important;
 }
