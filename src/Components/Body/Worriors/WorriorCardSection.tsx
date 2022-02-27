@@ -1,7 +1,8 @@
 import React, { ReactHTMLElement, useState } from 'react';
 import './WorriorCardSection.css'
 import { GrMoney } from 'react-icons/gr';
-
+import useNftStake from '../../../hooks/use-nft-stake';
+import useWalletNfts from '../../../hooks/use-wallet-nfts';
 import { AiOutlineMinusCircle } from 'react-icons/ai';
 
 
@@ -16,6 +17,9 @@ const order = [
 ]
 const WorriorCardSection = () => {
     const [product, setProduct] = useState<number[]>([]);
+    const [unStackproduct, setUnStackproduct] = useState<number[]>([]);
+    const { isLoading, stakedNfts, claimAmount, stakeNft, unstakeNft, claimRewards } = useNftStake();
+    const { isLoadingWalletNfts, walletNfts, setWalletNfts } = useWalletNfts();
     const handleOrderCollect = (e : React.ChangeEvent<HTMLInputElement>, i : number) => {
         console.log(e, i)
         if (e.target.checked) {
@@ -25,7 +29,29 @@ const WorriorCardSection = () => {
             setProduct(product.filter((item) => item !== i))
         }
     }
-    console.log(product.length)
+
+    const handleUnstackProduct = (e : React.ChangeEvent<HTMLInputElement>, i : number) => {
+        console.log(e, i)
+        if (e.target.checked) {
+            setUnStackproduct([...product, i])
+        }
+        else {
+            setUnStackproduct(product.filter((item) => item !== i))
+        }
+    }
+    const handleUnstake = async () => {
+        for (let i=0 ; i<product.length ; i++){
+            await unstakeNft(stakedNfts[product[i]].stakeData);
+        }
+        
+    }
+
+    const handleStake = async () => {
+        for (let i=0 ; i<unStackproduct.length ; i++){
+            await stakeNft(walletNfts[unStackproduct[i]].address);
+        }
+        
+    }
     return (
         <div className='worriors'>
             <h1>My Worriors</h1>
@@ -61,10 +87,26 @@ const WorriorCardSection = () => {
 
             <div className='warrior-card-section'>
                 {
-                    order.map((item, index) => <WorriorCard item={item} handleOrderCollect={handleOrderCollect} index={index} ></WorriorCard>)
+                    stakedNfts.length > 0 ?
+                        stakedNfts.map((nft: any, idx: number) => {
+                            return <WorriorCard key={idx} nft = {nft} index={idx} image={nft.image} name={nft.name} handleOrderCollect={handleOrderCollect}></WorriorCard>;
+                        })
+                    :
+                        <p>You didn't stake any NFTs.</p>
                 }
             </div>
-
+            <button onClick={handleUnstake}>Unstack</button>
+            <div className='warrior-card-section'>
+                {
+                    walletNfts.length > 0 ?
+                    walletNfts.map((nft: any, idx: number) => {
+                            return <WorriorCard key={idx} nft = {nft} index={idx} image={nft.image} name={nft.name} handleOrderCollect={handleUnstackProduct}></WorriorCard>;
+                        })
+                    :
+                        <p>You have no NFTs.</p>
+                }
+            </div>
+            <button onClick={handleStake}>stack</button>
         </div>
     );
 };
