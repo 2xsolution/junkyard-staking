@@ -42,7 +42,7 @@ const WithdrawHistory = () => {
             <a
               href="#"
               className="withdraw_btn"
-              onClick={() => handleClaim().then(() => stopLoader())}
+              // onClick={() => handleClaim().then(() => stopLoader())}
             >
               withdraw
             </a>
