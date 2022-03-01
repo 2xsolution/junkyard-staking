@@ -1,5 +1,5 @@
-export const COLLECTION_NAME = "WOLF1";
-export const COLLECTION_SYMBOL = "WOLF1";
+export const COLLECTION_NAME = "Zoku";
+export const COLLECTION_SYMBOL = "Zoku";
 
 export const STAKE_STATUS = {
     UNSTAKED:   0,
