@@ -33,12 +33,6 @@ const WithdrawHistory = () => {
       <div className="withdraw_history_box">
         <div className="withdraw">
           <div className="amount">
-            <p className="withdraw_amount">
-              <span>
-                <FiDatabase />
-              </span>{" "}
-              12000
-            </p>
             <a
               href="#"
               className="withdraw_btn"

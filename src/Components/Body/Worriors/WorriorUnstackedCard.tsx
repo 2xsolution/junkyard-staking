@@ -18,7 +18,7 @@ interface WorriorCardInterface {
   ) => void;
 }
 
-const WorriorCard = (props: WorriorCardInterface) => {
+const WorriorUnstackedCard = (props: WorriorCardInterface) => {
   const [time, setTime] = useState({ day: 0, hour: 0, minute: 0 });
 
   const getDurationHours = useEffect(() => {
@@ -61,14 +61,6 @@ const WorriorCard = (props: WorriorCardInterface) => {
           </div>
           <div className="duration">
             <div className="game-time">
-              <p>Duration</p>
-
-              <span>{`${time.day}d`} </span>
-              <span>{`${time.hour}h`} </span>
-              <span>{`${time.minute}m`}</span>
-            </div>
-            <div className="game-logo">
-              <img src={pic1} />
             </div>
           </div>
         </div>
@@ -77,4 +69,4 @@ const WorriorCard = (props: WorriorCardInterface) => {
   );
 };
 
-export default WorriorCard;
+export default WorriorUnstackedCard;

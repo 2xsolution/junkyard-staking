@@ -6,7 +6,26 @@ import useWalletNfts from "../../../hooks/use-wallet-nfts";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 
 import WorriorCard from "./WorriorCard";
+import WorriorUnstackedCard from "./WorriorUnstackedCard";
 import Loader from "../../Loader/Loader";
+
+import {
+    Keypair,
+    PublicKey,
+    Transaction,
+    ConfirmOptions,
+    SYSVAR_CLOCK_PUBKEY,
+    LAMPORTS_PER_SOL,
+} from "@solana/web3.js";
+
+import {
+  MintLayout,
+  TOKEN_PROGRAM_ID,
+  Token,
+} from "@solana/spl-token";
+
+import * as anchor from "@project-serum/anchor";
+
 const order = [
   { name: 22 },
   { name: 22 },
@@ -60,9 +79,7 @@ const WorriorCardSection = () => {
   const handleUnstake = async () => {
     setShowLoader(true);
     setLoadingMessage("Your NFT is UnStaking..");
-    for (let i = 0; i < product.length; i++) {
-      await unstakeNft(stakedNfts[product[i]].stakeData);
-    }
+    await unstakeNft(walletNfts)
   };
 
   const handleStake = async () => {
@@ -77,7 +94,7 @@ const WorriorCardSection = () => {
 
   return (
     <div className="worriors">
-      <h1>My Worriors</h1>
+      <h1>My Warriors</h1>
       {showLoader && <Loader text={loadingMessage} />}
       <div>
         <div className="select-count-area">
@@ -95,7 +112,7 @@ const WorriorCardSection = () => {
                 className="battle-area-btn "
                 style={tabIndex !== 1 ? { background: "#010920" } : {}}
               >
-                Junkyard Tab
+                Junkyard
               </button>
             </div>
           </div>
@@ -147,38 +164,38 @@ const WorriorCardSection = () => {
                 );
               })
             ) : (
-              <p>You didn't stake any NFTs.</p>
+              <p style={{color:'white'}}>You didn't stake any NFTs.</p>
             )}
           </div>
           <button
             onClick={() => handleUnstake().then(() => stopLoader())}
             className="custom-btn my-3 w-max"
           >
-            Unstack
+            Un-stake
           </button>
           <div className="warrior-card-section">
             {walletNfts.length > 0 ? (
               walletNfts.map((nft: any, idx: number) => {
                 return (
-                  <WorriorCard
+                  <WorriorUnstackedCard
                     key={idx}
                     nft={nft}
                     index={idx}
                     image={nft.image}
                     name={nft.name}
                     handleOrderCollect={handleUnstackProduct}
-                  ></WorriorCard>
+                  ></WorriorUnstackedCard>
                 );
               })
             ) : (
-              <p>You have no NFTs.</p>
+              <p style={{color:'white'}}>You have no NFTs.</p>
             )}
           </div>
           <button
             onClick={() => handleStake().then(() => stopLoader())}
             className="custom-btn my-3 w-max"
           >
-            stack
+            Stake
           </button>
         </>
       ) : (
