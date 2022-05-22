@@ -47,7 +47,7 @@ const WithdrawHistory = () => {
           <a href="#">
             My Wallet:{" "}
             <span>
-              <FiDatabase /> {`${claimAmount} JUNK`}{" "}
+              <FiDatabase /> {`${claimAmount} DADDY`}{" "}
             </span>
             {/* <span className="buy"> Buy more</span> */}
           </a>

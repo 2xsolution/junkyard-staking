@@ -5,8 +5,10 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import { STAKE_STATUS } from "../../../constant/contract";
 import { FiDatabase } from "react-icons/fi";
 import { getNftsForOwner } from "../../../utils/candy-machine";
+import Image from "../../../assets/img.png";
 const pic = "../../Image/card-img.png";
 const pic1 = "../../Image/Screenshot_3-removebg-preview (2) 2.png";
+
 interface WorriorCardInterface {
   image: any;
   name: string;
@@ -42,7 +44,9 @@ const WorriorCard = (props: WorriorCardInterface) => {
     <div className="card-section">
       <div className="worrior-card">
         <div className="card-img">
-          <img src={props.image} />
+          {/* <img src={props.image} /> */}
+          <img src={Image} />
+          <p className="card-tag">Rarity</p>
           <div className="card-selected">
             <input
               type="checkbox"
@@ -55,21 +59,26 @@ const WorriorCard = (props: WorriorCardInterface) => {
         </div>
         <div className="card-body">
           <div className="game-level">
-            <span className="level-serial">{props.name}</span>
+            {/* <span className="level-serial">{props.name}</span> */}
           </div>
-          <div className="reward">
-          </div>
+          <div className="reward"></div>
           <div className="duration">
             <div className="game-time">
-              <p>Duration</p>
-
-              <span>{`${time.day}d`} </span>
-              <span>{`${time.hour}h`} </span>
-              <span>{`${time.minute}m`}</span>
+              <div className="card-info">
+                {/* <p className="headline">Title</p> */}
+                <p>Dog Art</p>
+              </div>
+              <div className="card-info">
+                {/* <p className="headline">Description</p> */}
+                <p>Lorem ipsum dolor sit amet.</p>
+              </div>
+              <div style={{ display: "flex", justifyContent: "end" }}>
+                <button>Stake</button>
+              </div>
             </div>
-            <div className="game-logo">
+            {/* <div className="game-logo">
               <img src={pic1} />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

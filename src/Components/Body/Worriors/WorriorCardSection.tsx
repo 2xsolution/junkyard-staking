@@ -10,19 +10,15 @@ import WorriorUnstackedCard from "./WorriorUnstackedCard";
 import Loader from "../../Loader/Loader";
 
 import {
-    Keypair,
-    PublicKey,
-    Transaction,
-    ConfirmOptions,
-    SYSVAR_CLOCK_PUBKEY,
-    LAMPORTS_PER_SOL,
+  Keypair,
+  PublicKey,
+  Transaction,
+  ConfirmOptions,
+  SYSVAR_CLOCK_PUBKEY,
+  LAMPORTS_PER_SOL,
 } from "@solana/web3.js";
 
-import {
-  MintLayout,
-  TOKEN_PROGRAM_ID,
-  Token,
-} from "@solana/spl-token";
+import { MintLayout, TOKEN_PROGRAM_ID, Token } from "@solana/spl-token";
 
 import * as anchor from "@project-serum/anchor";
 
@@ -79,7 +75,7 @@ const WorriorCardSection = () => {
   const handleUnstake = async () => {
     setShowLoader(true);
     setLoadingMessage("Your NFT is UnStaking..");
-    await unstakeNft(walletNfts)
+    await unstakeNft(walletNfts);
   };
 
   const handleStake = async () => {
@@ -89,6 +85,39 @@ const WorriorCardSection = () => {
       await stakeNft(walletNfts[unStackproduct[i]].address);
     }
   };
+
+  const data = [
+    {
+      nft: "test",
+      image:
+        "https://drive.google.com/drive/folders/1miLHMsqPLx0tHQ35C3mFvoCF5ZFe2D2_",
+      name: "rocket man",
+    },
+    {
+      nft: "test",
+      image:
+        "https://drive.google.com/drive/folders/1miLHMsqPLx0tHQ35C3mFvoCF5ZFe2D2_",
+      name: "rocket man",
+    },
+    {
+      nft: "test",
+      image:
+        "https://drive.google.com/drive/folders/1miLHMsqPLx0tHQ35C3mFvoCF5ZFe2D2_",
+      name: "rocket man",
+    },
+    {
+      nft: "test",
+      image:
+        "https://drive.google.com/drive/folders/1miLHMsqPLx0tHQ35C3mFvoCF5ZFe2D2_",
+      name: "rocket man",
+    },
+    {
+      nft: "test",
+      image:
+        "https://drive.google.com/drive/folders/1miLHMsqPLx0tHQ35C3mFvoCF5ZFe2D2_",
+      name: "rocket man",
+    },
+  ];
 
   const [tabIndex, setTabIndex] = useState(0);
 
@@ -112,7 +141,7 @@ const WorriorCardSection = () => {
                 className="battle-area-btn "
                 style={tabIndex !== 1 ? { background: "#010920" } : {}}
               >
-                Junkyard
+                Daddyyard
               </button>
             </div>
           </div>
@@ -150,8 +179,8 @@ const WorriorCardSection = () => {
       {tabIndex === 0 ? (
         <>
           <div className="warrior-card-section">
-            {stakedNfts.length > 0 ? (
-              stakedNfts.map((nft: any, idx: number) => {
+            {data.length > 0 ? (
+              data.map((nft: any, idx: number) => {
                 return (
                   <WorriorCard
                     key={idx}
@@ -164,7 +193,7 @@ const WorriorCardSection = () => {
                 );
               })
             ) : (
-              <p style={{color:'white'}}>You didn't stake any NFTs.</p>
+              <p style={{ color: "white" }}>You didn't stake any NFTs.</p>
             )}
           </div>
           <button
@@ -188,7 +217,7 @@ const WorriorCardSection = () => {
                 );
               })
             ) : (
-              <p style={{color:'white'}}>You have no NFTs.</p>
+              <p style={{ color: "white" }}>You have no NFTs.</p>
             )}
           </div>
           <button

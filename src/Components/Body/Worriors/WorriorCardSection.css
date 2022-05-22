@@ -108,6 +108,22 @@
   position: absolute;
   top: 0;
 }
+
+.headline {
+  margin: 0 !important;
+  font-weight: 600;
+}
+
+.card-tag {
+  color: white;
+  background-color: #343a50;
+  padding: 4px 8px;
+  border-bottom-left-radius: 4px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .card-selected h6 {
   margin: 0;
   width: 91px;
@@ -195,6 +211,16 @@
   background: #3a445f;
   border-radius: 4px;
   color: #ffffff;
+}
+
+.game-time button {
+  border: none;
+  outline: none;
+  width: 60px;
+  cursor: pointer;
+  background-color: #8bbad9;
+  padding: 4px;
+  border-radius: 4px;
 }
 
 /* game logo code design  */

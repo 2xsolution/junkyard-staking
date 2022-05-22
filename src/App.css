@@ -21,17 +21,17 @@ a {
 
 .logo {
   width: 100px;
-  transform: scale(2.2);
+  /* transform: scale(2.2); */
 }
 
 .custom-btn {
   margin: 4px;
   width: 100%;
   padding: 6px;
-  color: white;
+  /* color: white; */
   border: none;
   outline: none;
-  background-color: #9752f1;
+  background-color: #8bbad9;
   border-radius: 4px;
   font-size: 14px;
   font-weight: 600;
